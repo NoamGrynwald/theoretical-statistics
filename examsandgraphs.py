@@ -1,35 +1,10 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-remote_country_interaction.py
-
-Creates:
-  outputs/tables/remote_distribution_by_country_counts.csv
-  outputs/tables/remote_distribution_by_country_pct.csv
-  outputs/figs/remote_distribution_by_country_stacked_topN.pdf
-  outputs/tables/interaction_group_stats.csv
-  outputs/tables/ols_remote_x_experience_coef.csv
-  outputs/tables/ols_remote_x_experience_wald.csv
-  outputs/figs/interaction_remote_x_experience_rawmeans.pdf
-  outputs/figs/interaction_remote_x_experience_adjusted_pred.pdf
-
-Usage:
-  python remote_country_interaction.py --input salaries.csv --topN 20 --min_n 50
-"""
-
 import argparse
-import os
-import math
 from pathlib import Path
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import stats
-
-# statsmodels for the OLS with interaction
-import statsmodels.api as sm
 import statsmodels.formula.api as smf
-from statsmodels.stats.anova import anova_lm
 
 # ------------------------------
 # Utilities
